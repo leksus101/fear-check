@@ -1,0 +1,260 @@
+/* ==========================================================================
+   FEAR PROJECT - CHEAT CHECK GUIDE & ADMIN TOOLKIT
+   Cyberpunk / CS2 Tactical Dark Theme Stylesheet
+   ========================================================================== */
+
+:root {
+  --bg-primary: #07090e;
+  --bg-secondary: #0d121d;
+  --bg-tertiary: #131a29;
+  --bg-card: rgba(19, 26, 41, 0.75);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(0, 240, 255, 0.3);
+  
+  --accent-cyan: #00f0ff;
+  --accent-cyan-glow: rgba(0, 240, 255, 0.15);
+  --accent-emerald: #10b981;
+  --accent-emerald-glow: rgba(16, 185, 129, 0.2);
+  --accent-amber: #f59e0b;
+  --accent-amber-glow: rgba(245, 158, 11, 0.2);
+  --accent-rose: #f43f5e;
+  --accent-rose-glow: rgba(244, 63, 94, 0.2);
+  --accent-purple: #8b5cf6;
+  
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Background Gradients & Grid */
+.cyber-grid-bg {
+  background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.07) 0%, transparent 50%),
+    radial-gradient(circle at 100% 50%, rgba(244, 63, 94, 0.04) 0%, transparent 40%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+}
+
+/* Glassmorphism Card */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.glass-panel-glow:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.12);
+}
+
+/* Glowing text and borders */
+.text-glow-cyan {
+  text-shadow: 0 0 16px rgba(0, 240, 255, 0.6);
+}
+.text-glow-rose {
+  text-shadow: 0 0 16px rgba(244, 63, 94, 0.6);
+}
+.text-glow-amber {
+  text-shadow: 0 0 16px rgba(245, 158, 11, 0.6);
+}
+.text-glow-emerald {
+  text-shadow: 0 0 16px rgba(16, 185, 129, 0.6);
+}
+
+/* Subtle Pulsing Animation */
+@keyframes softPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(0.98); }
+}
+
+.animate-soft-pulse {
+  animation: softPulse 2.5s infinite ease-in-out;
+}
+
+@keyframes radarSweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.radar-sweep {
+  animation: radarSweep 6s linear infinite;
+}
+
+/* Terminal Styling */
+.terminal-window {
+  background: #090c10;
+  border: 1px solid #30363d;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.65);
+  font-family: var(--font-mono);
+}
+
+.terminal-header {
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+}
+
+/* Badge Styles */
+.badge-basic {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-medium {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-deep {
+  background: rgba(244, 63, 94, 0.12);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.badge-rule {
+  background: rgba(139, 92, 246, 0.12);
+  color: #c084fc;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+/* Custom Checkbox */
+.custom-check {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #475569;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  background: rgba(15, 23, 42, 0.6);
+  display: inline-grid;
+  place-content: center;
+  transition: all 0.2s ease;
+}
+
+.custom-check:checked {
+  background: #00f0ff;
+  border-color: #00f0ff;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.5);
+}
+
+.custom-check:checked::before {
+  content: "✔";
+  color: #050811;
+  font-weight: 900;
+  font-size: 13px;
+}
+
+/* Accordion smooth transition */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+
+.accordion-content.open {
+  max-height: 2500px;
+  opacity: 1;
+}
+
+/* Copy Tooltip Animation */
+@keyframes toastSlideUp {
+  from {
+    transform: translate(-50%, 20px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+.toast-anim {
+  animation: toastSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Windows UI Simulation Styles */
+.win-ui-card {
+  background: #202020;
+  border: 1px solid #3c3c3c;
+  color: #e5e5e5;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.win-folder-item {
+  transition: background-color 0.15s ease;
+}
+.win-folder-item:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.win-folder-item.flagged {
+  background-color: rgba(244, 63, 94, 0.15);
+  border: 1px dashed rgba(244, 63, 94, 0.6);
+}
+
+/* Data Table Simulation */
+.cyber-table th {
+  background: rgba(15, 23, 42, 0.8);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cyber-table td {
+  padding: 8px 12px;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.cyber-table tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Active Tab indicator */
+.tab-active {
+  background: rgba(0, 240, 255, 0.15) !important;
+  color: #00f0ff !important;
+  border-color: rgba(0, 240, 255, 0.5) !important;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
+}
+
+/* Mobile Bottom Sheet & Nav */
+@media (max-width: 768px) {
+  .mobile-bottom-nav {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+}
